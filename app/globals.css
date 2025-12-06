@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .brr {
-    border: 1px solid red;
+    border: 1px solid #ff0000;
     /* background: #070611; */
 }
 .brb {
