@@ -92,7 +92,7 @@ const Search = () => {
 
             {
               !moviesLoading && !moviesError && movies?.length > 0 && (
-                <Text className='text-white text-center my-5 '>
+                <Text className='text-white text-center text-sm my-5 '>
                   Search results for: <Text className='text-accent font-bold'>{query}</Text>
                 </Text>
               )

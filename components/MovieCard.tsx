@@ -6,7 +6,7 @@ import { icons } from '@/constants/icons'
 const MovieCard = ({ id, poster_path, title, vote_average, release_date }: any) => {
     return (
         <Link href={`/movie/${id}`} asChild>
-            <TouchableOpacity className='flex-1'>
+            <TouchableOpacity className='flex-1 max-w-[33%]'>
                 <Image
                     source={{
                         uri: poster_path
@@ -20,7 +20,7 @@ const MovieCard = ({ id, poster_path, title, vote_average, release_date }: any) 
                 />
                 <Text className='text-white text-sm mt-1 font-bold' numberOfLines={1}>{title}</Text>
                 <View className='flex-row items-center'>
-                    <Image source={icons.star} className='size-5' />
+                    <Image source={icons.star} className='size-4' />
                     <Text className='text-white text-xs mt-1 font-bold ml-2'>{(vote_average/2).toFixed(2)}</Text>
                 </View>
                 <View className='flex-row items-center justify-between'>
