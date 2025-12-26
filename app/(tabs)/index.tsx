@@ -1,5 +1,6 @@
 import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
+import TrendingCard from "@/components/TrendingCard";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
@@ -16,6 +17,14 @@ export default function Index() {
     error: moviesError
   } = useFetch(() => fetchMovies({
     query: ''
+  }))
+
+  const {
+    data: trending,
+    loading: trendingLoading,
+    error: trendingError,
+  } = useFetch(() => fetchMovies({
+    query: 'avengers'
   }))
 
   return (
@@ -48,6 +57,16 @@ export default function Index() {
                   onPress={() => router.push('/search')}
                 />
                 <>
+                  <Text className="text-lg text-white font-bold mt-5 mb-3">Trending Movies</Text>
+                  <FlatList
+                    horizontal
+                   contentContainerStyle={{ gap: 10 }}
+                    data={trending}
+                    renderItem={({ item, index }) => (
+                      <TrendingCard movie={item} index={index}></TrendingCard>
+                    )}
+                    keyExtractor={(item) => item.id.toString()}
+                  />
                   <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
                   <View>
                     <FlatList

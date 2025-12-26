@@ -25,6 +25,8 @@ const Search = () => {
   }), false)
 
 
+
+
   useEffect(() => {
     setIstyping(true)
     const timeoutId = setTimeout(
